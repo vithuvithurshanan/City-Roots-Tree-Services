@@ -154,55 +154,79 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // -------------------------
+   // -------------------------
   // 7. Scroll-In Animations (Fade + Slide Up)
   // -------------------------
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
   const animatableElements = document.querySelectorAll(
-    '.service-card, .process-card, .badge-item, .comparison-card, .faq-item, .cta-box, .section-header'
+    ".service-card, .process-card, .badge-item, .comparison-card, .faq-item, .cta-box, .section-header"
   );
 
-  if ('IntersectionObserver' in window) {
-    // Add initial state styles
-    const animStyle = document.createElement('style');
+  if ("IntersectionObserver" in window && !prefersReducedMotion) {
+    const animStyle = document.createElement("style");
+
     animStyle.textContent = `
       .anim-target {
         opacity: 0;
         transform: translateY(28px);
-        transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1), transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+        transition:
+          opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
       }
+
       .anim-target.anim-visible {
         opacity: 1;
         transform: translateY(0);
       }
     `;
+
     document.head.appendChild(animStyle);
 
-    const animObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          // Stagger delay for grid children
-          const delay = (entry.target.dataset.animDelay || 0);
-          setTimeout(() => {
-            entry.target.classList.add('anim-visible');
-          }, delay);
-          animObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    const animObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const delay = Number(entry.target.dataset.animDelay || 0);
 
-    // Apply stagger delays to grid children
-    const grids = document.querySelectorAll('.services-grid, .process-steps, .badges-grid, .comparison-grid');
-    grids.forEach(grid => {
-      Array.from(grid.children).forEach((child, i) => {
-        child.dataset.animDelay = i * 100;
+            setTimeout(() => {
+              entry.target.classList.add("anim-visible");
+            }, delay);
+
+            animObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    const grids = document.querySelectorAll(
+      ".services-grid, .process-steps, .badges-grid, .comparison-grid"
+    );
+
+    grids.forEach((grid) => {
+      Array.from(grid.children).forEach((child, index) => {
+        child.dataset.animDelay = index * 100;
       });
     });
 
-    animatableElements.forEach(el => {
-      el.classList.add('anim-target');
-      animObserver.observe(el);
+    animatableElements.forEach((element) => {
+      element.classList.add("anim-target");
+      animObserver.observe(element);
+    });
+  } else {
+    animatableElements.forEach((element) => {
+      element.style.opacity = "1";
+      element.style.transform = "none";
     });
   }
+
+  
 
   // -------------------------
   // 8. Smooth CTA Phone Link Hover Effect

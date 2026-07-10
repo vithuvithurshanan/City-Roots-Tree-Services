@@ -192,10 +192,11 @@ header .container {
   letter-spacing: -0.5px;
 }
 .logo-img {
+  width: 48px;
   height: 48px;
-  width: auto;
   display: block;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 nav ul {
@@ -514,6 +515,7 @@ nav ul li a:hover, nav ul li a.active {
   height: 100%;
   object-fit: cover;
   transition: var(--transition-slow);
+  content-visibility: auto;
 }
 
 .service-card:hover .service-img-wrapper img {
@@ -1532,6 +1534,20 @@ footer {
   gap: 16px;
   flex-wrap: wrap;
   margin-top: 8px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 

@@ -15,11 +15,20 @@
   <header id="main-header">
     <div class="container">
       <a href="index.html" class="logo" aria-label="City Roots Tree Services Home">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2-8 2 2-2 2-4 2-4-3 2-5 4-5 8S12 17 12 17s0-5 3-7c-1.84 3.16-2 8-2 8s-3.12-6-3-9c.1-2.72 2-5 7-8z"/>
-        </svg>
-        <span>City<span class="text-gradient-green">Roots</span></span>
-      </a>
+  <img
+    src="images/logo_optimized.webp"
+    alt="City Roots Tree Services Logo"
+    class="logo-img"
+    width="160"
+    height="60"
+    loading="eager"
+    decoding="async"
+  />
+
+  <span>
+    City<span class="text-gradient-green">Roots</span> Tree Services
+  </span>
+</a>
 
       <nav id="main-nav" aria-label="Main navigation">
         <ul>
@@ -187,7 +196,15 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo" aria-label="City Roots Tree Services Home">
-            <img src="images/logo.png" alt="City Roots Tree Services Logo" class="logo-img" />
+          <img
+  src="images/logo_optimized.webp"
+  alt="City Roots Tree Services Logo"
+  class="logo-img"
+  width="160"
+  height="60"
+  loading="lazy"
+  decoding="async"
+/>
             <span>City<span class="text-gradient-green">Roots</span> Tree Services</span>
           </a>
           <p>Certified arborists providing expert tree care services across Clarence Center and Western New York.</p>
@@ -227,20 +244,6 @@
   </footer>
 
   <script src="script.js"></script>
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
-    const firebaseConfig = {
-      apiKey: "AIzaSyAmv_U5x2VYQrHXB8pJVcS8IzKcFsuOd-s",
-      authDomain: "city-roots-tree-service.firebaseapp.com",
-      projectId: "city-roots-tree-service",
-      storageBucket: "city-roots-tree-service.firebasestorage.app",
-      messagingSenderId: "692966945970",
-      appId: "1:692966945970:web:b81d7f1523a499d20bc5ab",
-      measurementId: "G-H5E2L7P90Z"
-    };
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
+ 
 </body>
 </html>
