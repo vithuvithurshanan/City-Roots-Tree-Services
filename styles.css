@@ -1129,10 +1129,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+  /* ── Header ── */
   .menu-toggle {
     display: flex;
   }
-  
+
   nav {
     position: fixed;
     top: var(--header-height);
@@ -1144,78 +1145,303 @@ footer {
     padding: 40px 24px;
     transition: var(--transition-normal);
     z-index: 999;
+    overflow-y: auto;
   }
-  
+
   nav.active {
     left: 0;
   }
-  
+
   nav ul {
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
   }
-  
+
   nav ul li a {
     font-size: 1.2rem;
   }
-  
+
+  /* ── Logo text truncation fix ── */
+  .logo span {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+  }
+
+  /* ── Hero ── */
   .hero {
-    padding: 120px 0 60px;
+    padding: 100px 0 60px;
   }
-  
+
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
+    letter-spacing: -1px;
   }
-  
+
+  .hero-content {
+    padding: 28px 20px;
+    gap: 18px;
+  }
+
+  .hero .lead {
+    font-size: 1rem;
+  }
+
+  .hero-trust {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* ── Section headers ── */
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  /* ── Services ── */
+  .services-section {
+    padding: 72px 0;
+  }
+
   .services-grid {
     grid-template-columns: 1fr;
   }
-  
-  .badges-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .comparison-grid {
-    grid-template-columns: 1fr;
+
+  /* ── Badges ── */
+  .trust-badges {
+    padding: 32px 0;
   }
 
+  .badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .badge-item {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  /* ── Comparison ── */
+  .comparison-section {
+    padding: 72px 0;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .comparison-card {
+    padding: 28px 24px;
+  }
+
+  /* ── Process ── */
+  .process-section {
+    padding: 72px 0;
+  }
+
+  .process-card {
+    padding: 28px 24px;
+  }
+
+  .process-num {
+    font-size: 2.5rem;
+    top: 20px;
+    right: 24px;
+  }
+
+  /* ── FAQ ── */
+  .faq-section {
+    padding: 72px 0;
+  }
+
+  /* ── CTA Box ── */
   .cta-box {
     grid-template-columns: 1fr;
     gap: 32px;
     padding: 32px 24px;
   }
-  
+
+  /* ── Contact section ── */
+  .contact-page {
+    padding: 100px 0 60px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .contact-info h1 {
+    font-size: 1.9rem;
+    letter-spacing: -0.5px;
+  }
+
+  .contact-ctas {
+    flex-direction: column;
+  }
+
+  .contact-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cta-phone-tag {
+    font-size: 1.35rem;
+  }
+
+  /* Keep iframe usable on mobile */
+  .cta-form-card iframe {
+    height: 700px;
+  }
+
+  /* ── Footer ── */
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .footer-contact {
     grid-column: span 1;
   }
-  
+
+  footer {
+    padding: 60px 0 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* ── Policy pages ── */
   .policy-card {
     padding: 24px;
   }
-  
+
   .policy-header h1 {
     font-size: 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .badges-grid {
-    grid-template-columns: 1fr;
+  /* ── Container padding ── */
+  .container {
+    padding: 0 16px;
   }
-  
+
+  /* ── Logo ── */
+  .logo span {
+    max-width: 140px;
+    font-size: 0.95rem;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 90px 0 48px;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+    letter-spacing: -0.75px;
+  }
+
+  .hero-content {
+    padding: 20px 16px;
+  }
+
   .hero-ctas {
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .hero-ctas .btn {
     width: 100%;
+    justify-content: center;
+  }
+
+  /* ── Section headers ── */
+  .section-header h2 {
+    font-size: 1.75rem;
+  }
+
+  /* ── Badges ── */
+  .badges-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Service cards ── */
+  .service-info {
+    padding: 20px;
+  }
+
+  /* ── Comparison cards ── */
+  .comparison-card {
+    padding: 20px 16px;
+  }
+
+  /* ── Process cards ── */
+  .process-card {
+    padding: 20px 16px;
+  }
+
+  .process-num {
+    font-size: 2rem;
+    top: 14px;
+    right: 16px;
+  }
+
+  /* ── FAQ ── */
+  .faq-trigger {
+    padding: 18px 16px;
+  }
+
+  .faq-content-inner {
+    padding: 0 16px 18px;
+  }
+
+  .faq-trigger h4 {
+    font-size: 0.95rem;
+  }
+
+  /* ── Contact ── */
+  .contact-info h1 {
+    font-size: 1.65rem;
+  }
+
+  .cta-phone-tag {
+    font-size: 1.2rem;
+  }
+
+  .cta-form-card {
+    padding: 20px 16px;
+  }
+
+  .cta-form-card iframe {
+    height: 650px;
+  }
+
+  /* ── Footer ── */
+  .footer-bottom-links {
+    gap: 16px;
+  }
+
+  /* ── Policy ── */
+  .policy-card {
+    padding: 20px 16px;
+  }
+
+  .policy-header h1 {
+    font-size: 1.75rem;
   }
 }
 
