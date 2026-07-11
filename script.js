@@ -244,3 +244,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+const loadButton = document.getElementById("load-ghl-form");
+const formWrapper = document.getElementById("ghl-form-wrapper");
+
+if (loadButton && formWrapper) {
+  loadButton.addEventListener("click", () => {
+    if (formWrapper.dataset.loaded === "true") return;
+
+    formWrapper.dataset.loaded = "true";
+
+    formWrapper.innerHTML = `
+      <iframe
+        src="https://link.kdlead.com/widget/form/PbCA0dHMxP85aKhIO3ew"
+        style="width:100%;height:794px;border:none;border-radius:8px;"
+        id="inline-PbCA0dHMxP85aKhIO3ew"
+        data-layout='{"id":"INLINE"}'
+        data-trigger-type="alwaysShow"
+        data-activation-type="alwaysActivated"
+        data-deactivation-type="neverDeactivate"
+        data-form-id="PbCA0dHMxP85aKhIO3ew"
+      ></iframe>
+    `;
+
+    const script = document.createElement("script");
+    script.src = "https://link.kdlead.com/js/form_embed.js?v=2";
+    script.async = true;
+
+    document.body.appendChild(script);
+  });
+}
