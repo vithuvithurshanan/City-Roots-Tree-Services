@@ -415,6 +415,7 @@ nav ul li a:hover, nav ul li a.active {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   transition: var(--transition-normal);
+  min-height: 90px;
 }
 
 .badge-item:hover {
@@ -442,6 +443,17 @@ nav ul li a:hover, nav ul li a.active {
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 2px;
+}
+.badge-info {
+  min-width: 0;
+}
+
+.badge-info h4 {
+  line-height: 1.2;
+}
+
+.badge-info p {
+  line-height: 1.4;
 }
 .badge-info p {
   font-size: 0.8rem;
