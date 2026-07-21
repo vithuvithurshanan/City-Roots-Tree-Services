@@ -4,14 +4,15 @@
   --bg-secondary: #ffffff;
   --bg-tertiary: #eef2ee;
   --accent-emerald: #059669;
+  --accent-emerald-text: #047857; /* darker variant for text — passes 4.5:1 on light backgrounds; --accent-emerald itself stays for backgrounds/icons/borders (3:1 is enough there) */
   --accent-emerald-light: rgba(5, 150, 105, 0.08);
   --accent-emerald-mid: rgba(5, 150, 105, 0.10);
   --accent-emerald-pulse: rgba(5, 150, 105, 0.4);
   --accent-red: #ef4444;
-  --accent-amber: #d97706;
+  --accent-amber: #b25a03;
   --text-primary: #0f1f18;
   --text-secondary: #374151;
-  --text-muted: #6b7280;
+  --text-muted: #5f6672;
 
   /* Borders & Shadows */
   --border-color: rgba(0, 0, 0, 0.08);
@@ -122,7 +123,7 @@ img {
 }
 
 .text-accent {
-  color: var(--accent-emerald);
+  color: var(--accent-emerald-text);
 }
 
 .text-gradient-green {
@@ -211,7 +212,7 @@ nav ul li a {
 }
 
 nav ul li a:hover, nav ul li a.active {
-  color: var(--accent-emerald);
+  color: var(--accent-emerald-text);
 }
 #nav-cta-btn:hover {
   color:black;
@@ -243,7 +244,7 @@ nav ul li a:hover, nav ul li a.active {
 
 .btn-outline {
   background-color: transparent;
-  color: var(--accent-emerald);
+  color: var(--accent-emerald-text);
   border: 2px solid var(--accent-emerald);
   font-weight: 700;
 }
@@ -338,7 +339,7 @@ nav ul li a:hover, nav ul li a.active {
   border-radius: 100px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--accent-emerald);
+  color: var(--accent-emerald-text);
   align-self: flex-start;
 }
 
@@ -440,7 +441,7 @@ nav ul li a:hover, nav ul li a.active {
   fill: var(--accent-emerald);
 }
 
-.badge-info h4 {
+.badge-info h3 {
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 2px;
@@ -449,7 +450,7 @@ nav ul li a:hover, nav ul li a.active {
   min-width: 0;
 }
 
-.badge-info h4 {
+.badge-info h3 {
   line-height: 1.2;
 }
 
@@ -473,7 +474,7 @@ nav ul li a:hover, nav ul li a.active {
 .section-header .section-tag {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--accent-emerald);
+  color: var(--accent-emerald-text);
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -567,7 +568,7 @@ nav ul li a:hover, nav ul li a.active {
   gap: 8px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--accent-emerald);
+  color: var(--accent-emerald-text);
   margin-top: auto;
   align-self: flex-start;
 }
@@ -766,15 +767,15 @@ nav ul li a:hover, nav ul li a.active {
   text-align: left;
 }
 
-.faq-trigger h4 {
+.faq-trigger h3 {
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-primary);
   transition: var(--transition-fast);
 }
 
-.faq-item.active .faq-trigger h4 {
-  color: var(--accent-emerald);
+.faq-item.active .faq-trigger h3 {
+  color: var(--accent-emerald-text);
 }
 
 .faq-icon-shape {
@@ -946,7 +947,7 @@ footer {
   font-size: 0.9rem;
 }
 
-.footer-links-col h5 {
+.footer-links-col h3 {
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 24px;
@@ -971,7 +972,7 @@ footer {
   padding-left: 4px;
 }
 
-.footer-contact h5 {
+.footer-contact h3 {
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 24px;
@@ -1523,7 +1524,7 @@ footer {
   fill: var(--accent-emerald);
 }
 
-.contact-detail-item h4 {
+.contact-detail-item h2 {
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -1537,7 +1538,7 @@ footer {
 }
 
 .contact-detail-item a:hover {
-  color: var(--accent-emerald);
+  color: var(--accent-emerald-text);
 }
 
 .contact-ctas {

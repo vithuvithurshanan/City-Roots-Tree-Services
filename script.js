@@ -127,6 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     trigger.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
+      // Read the layout dimension before any writes below, so the browser
+      // doesn't have to force a synchronous reflow to answer it.
+      const openHeight = contentInner ? contentInner.scrollHeight + 'px' : '300px';
 
       // Close all other items
       faqItems.forEach(otherItem => {
@@ -146,9 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         trigger.setAttribute('aria-expanded', 'false');
       } else {
         item.classList.add('active');
-        content.style.maxHeight = contentInner
-          ? contentInner.scrollHeight + 'px'
-          : '300px';
+        content.style.maxHeight = openHeight;
         trigger.setAttribute('aria-expanded', 'true');
       }
     });
