@@ -277,6 +277,7 @@ nav ul li a:hover, nav ul li a.active {
 /* Hero Section */
 .hero {
   padding: 160px 0 100px;
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
 }
