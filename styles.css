@@ -1,3 +1,29 @@
+/* Metric-matched local fallbacks for the two Google Fonts below. Without
+   these, the fallback (generic sans-serif) and the webfont have different
+   average character widths, so paragraphs re-wrap to a different number of
+   lines when the webfont swaps in — that's what was causing the large
+   post-load layout shift (fonts loading -> hero copy re-wrapping -> whole
+   page below the hero shifting). Values derived from the actual Inter-400
+   and Plus-Jakarta-Sans-800 woff2 files vs. local Arial metrics. */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial'), local('Liberation Sans');
+  ascent-override: 70.06%;
+  descent-override: 17.44%;
+  line-gap-override: 0%;
+  size-adjust: 138.27%;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans Fallback';
+  src: local('Arial'), local('Liberation Sans');
+  font-weight: 700 800;
+  ascent-override: 85.05%;
+  descent-override: 18.19%;
+  line-gap-override: 0%;
+  size-adjust: 122.04%;
+}
+
 :root {
   /* ── Color Tokens ── */
   --bg-primary: #f5f7f5;
@@ -37,8 +63,8 @@
   --border-radius-lg: 24px;
 
   /* Fonts */
-  --font-headings: 'Plus Jakarta Sans', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-headings: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', sans-serif;
+  --font-body: 'Inter', 'Inter Fallback', sans-serif;
 
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
