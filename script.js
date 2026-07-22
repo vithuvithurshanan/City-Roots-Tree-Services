@@ -23,7 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // run once on load
+    // Defer the initial check instead of calling onScroll() synchronously
+    // here — reading window.scrollY this early in the DOMContentLoaded
+    // handler forced the browser to flush the page's very first layout pass
+    // synchronously instead of on its own natural schedule.
+    requestAnimationFrame(onScroll);
   }
 
   // -------------------------
