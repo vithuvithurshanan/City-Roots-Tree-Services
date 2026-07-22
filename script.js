@@ -15,18 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // -------------------------
   const header = document.getElementById('main-header');
   if (header) {
+    let ticking = false;
     const onScroll = () => {
-      if (window.scrollY > 30) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+      const currentScroll = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (currentScroll > 30) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
-    // Defer the initial check instead of calling onScroll() synchronously
-    // here — reading window.scrollY this early in the DOMContentLoaded
-    // handler forced the browser to flush the page's very first layout pass
-    // synchronously instead of on its own natural schedule.
     requestAnimationFrame(onScroll);
   }
 
