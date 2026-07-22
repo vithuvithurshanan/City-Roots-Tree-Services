@@ -355,6 +355,7 @@ nav ul li a:hover, nav ul li a.active {
   border-radius: var(--border-radius-lg);
   padding: 40px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  min-height: 480px;
 }
 
 .hero-tag {
@@ -403,7 +404,7 @@ nav ul li a:hover, nav ul li a.active {
   display: flex;
   align-items: center;
   gap: 16px;
-  min-height: 32px;
+  min-height: 48px;
   line-height: 1.2;
   margin-top: 16px;
   border-top: 1px solid var(--border-color);

@@ -15,23 +15,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // -------------------------
   const header = document.getElementById('main-header');
   if (header) {
-    let ticking = false;
-    const onScroll = () => {
-      const currentScroll = window.scrollY;
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (currentScroll > 30) {
-            header.classList.add('scrolled');
-          } else {
-            header.classList.remove('scrolled');
-          }
-          ticking = false;
-        });
-        ticking = true;
+    const sentinel = document.createElement('div');
+    sentinel.style.position = 'absolute';
+    sentinel.style.top = '30px';
+    sentinel.style.left = '0';
+    sentinel.style.width = '1px';
+    sentinel.style.height = '1px';
+    sentinel.style.visibility = 'hidden';
+    document.body.prepend(sentinel);
+
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
       }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    requestAnimationFrame(onScroll);
+    });
+    observer.observe(sentinel);
   }
 
   // -------------------------
